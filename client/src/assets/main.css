@@ -1,0 +1,413 @@
+/* --oxford-blue: #080c24ff;
+
+--oxford-blue-2: #151e34ff;
+
+--blue-crayola: #3071e8ff;
+
+--white: #ffffffff;
+
+--maximum-blue-purple: #a6b2ebff;
+
+--celadon-blue: #1f7ea7ff; */
+
+.App{
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  background-color: #151e34ff;
+  color:#ffffffff
+}
+
+
+.Navbar{
+  background-color:#080c24ff;
+  width: auto;
+  height: 80px;
+  display: flex;
+  font-family: Arial, Geneva, Helvetica, sans-serif;
+}
+
+.Navbar .right-side {
+  flex: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+}
+
+
+.icons {
+  display:flex;
+  align-items: center;
+  max-height: 80px;
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  margin-right: 15px;
+  
+}
+
+.question-icon{
+  height: 20px;
+  padding-right:10px;
+}
+.question-icon :hover{
+  color: #a6b2ebff;
+}
+
+.bell-icon{
+  height: 20px;
+  padding-right:10px;
+}
+.bell-icon :hover{
+  color: #a6b2ebff;
+}
+
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFF0;
+  font-size: 25px;
+  margin-right: 3px;
+  
+}
+.Navbar .right-side .searchbar input{
+  width:400px;
+  height: 30px;
+  padding-right: 25px;
+  
+}
+
+
+.search-button {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.search-button .search-image{
+  width: 20px;
+  height: 20px;
+  margin-left: -33px;
+  padding-top: 5px;
+  padding-right: 10px;
+  object-fit: cover;
+  display: inline;
+  justify-content: center;
+}
+
+[data-initials]:before {
+  background: #1f7ea7ff;
+  color: F5F5F5;
+  opacity: 1; 
+  content: attr(data-initials); 
+  display: inline-block; 
+  font-weight: 600; 
+  font-size: 10px;
+  border-radius: 50%; 
+  vertical-align: middle; 
+  margin-right: 0.5em; 
+  width: 20px; 
+  height: 20px; 
+  line-height: 20px; 
+  text-align: center; 
+  }
+
+
+  /* left side navbar */
+.Navbar .left-side {
+  flex: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
+
+.logo{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo a {
+  text-decoration:none;
+  color: whitesmoke;
+  visibility: visible;
+}
+.logo a :hover{
+  color:whitesmoke;
+}
+
+.divebox :hover{
+  color: #a6b2ebff;
+}
+
+
+.logo img {
+  padding-left: 10px;
+  width:26px;
+  height: 25px;
+  visibility: visible;
+}
+.hamburger-menu{
+  height:20px;
+  width:20px;
+  visibility: hidden;
+}
+
+.menu-icon{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.cube-icon{
+  height: 20px;
+  width: 20px;
+  padding-left: 20px;
+  color: #FFFFF0;
+}
+
+.cube-icon :hover{
+  color: #a6b2ebff;
+}
+
+
+/* login */
+
+
+.login-header{
+  width:100%;
+  height:80px;
+  background-color:#080c24ff;
+}
+
+.login-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  height:100%;
+}
+
+.login-header img{
+  height:50px;
+  padding-right: 5px;
+}
+.login-header-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.login-header-button button {
+  background: transparent;
+  border-color:#a6b2ebff;
+  color:#a6b2ebff;
+  border-style: solid;
+  border-radius: 7%;
+  font-weight: bold;
+  height: 35px;
+  cursor: pointer;
+}
+
+.login-logo{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height:100%;
+    width: 250px;
+    margin: 0% 20% 0% 20%;
+}
+.login-logo a{
+  color:whitesmoke;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.login-logo a :hover {
+  color: whitesmoke;
+}
+
+.download{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color:#a6b2ebff;
+}
+.download a{
+  text-decoration:none;
+  color: #a6b2ebff;
+}
+
+.download a :hover{
+  text-decoration: underline;
+  color: #a6b2ebff;
+}
+
+.login-body{
+  background-color: black;
+  height: 700px;
+  width: 53%;
+  margin-right: 25%;
+  margin-left:25%;
+}
+.alert-container .login-alert .login-closebtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#notif-link {
+  padding-left: 8px;
+  color:#151e34ff;
+}
+
+.login-alert {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: #1f7ea7ff;
+  color: white;
+  height: 45px;
+}
+.alert-p{
+  margin-left: 5px;
+}
+
+/* The close button */
+.login-closebtn {
+
+  display: flex;
+  margin-left: 10px;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.login-closebtn:hover {
+  color: black;
+}
+
+.login-form{
+  display:flex;
+  background-color: yellow;
+  height:700px;
+}
+.login-form-left{
+  margin-top: 9%;
+  flex:50%;
+  height:500px;
+  background-color: pink;
+}
+
+.login-form-left img{
+  height:100%;
+  width:100%;
+}
+
+.login-form-right{
+  margin-top: 9%;
+  flex: 50%;
+  height: 500px;
+  background-color: blue;
+}
+
+.top-of-form{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: green;
+  
+}
+.top-of-form p{
+  display: flex;
+  
+}
+
+.top-of-form a{
+  color:#151e34ff;
+  cursor: pointer;
+}
+
+#sign-in-p{
+  margin-right: 189px;
+  text-decoration: solid;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+/* screen width */
+
+@media only screen and (max-width: 850px) {
+  .Navbar .right-side .searchbar {
+    width: 400px
+  }
+
+  .Navbar .right-side .icons {
+    padding-right: 10px;
+  }
+}
+
+
+@media only screen and (max-width: 720px) {
+  .Navbar .right-side .searchbar {
+    width: 289px
+  }
+
+  .Navbar .right-side .icons {
+    padding-right: 10px;
+  }
+
+    .logo a {
+      width: 0px;
+      text-decoration: none;
+      color: whitesmoke;
+      visibility: hidden;
+    }
+
+    .logo img {
+      padding-left: 0px;
+      width: 0px;
+      height: 0px;
+      visibility: hidden;
+    }
+
+    .hamburger-menu {
+      height: 30px;
+      width: 30px;
+      padding: 10px;
+      visibility: visible;
+    }
+    
+    .hamburger-menu :hover{
+      color: #a6b2ebff;
+    }
+
+        .cube-icon {
+          height: 30px;
+          width: 30px;
+          padding-left: 20px;
+          color: #FFFFF0;
+        }
+}

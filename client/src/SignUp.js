@@ -1,40 +1,45 @@
 import React, {useRef, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 
-function Login({ setUser }){
+
+function SignUp({setUser}){
     const div = useRef(null);
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
     const navigate = useNavigate();
 
-
-        function handleSubmit(e) {
+    function handleSubmit(e) {
         e.preventDefault();
-        fetch("/login", {
+
+        
+        fetch("/signup", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
-        }).then((r) => {
-            if (r.ok) {
-                r.json().then((user) => setUser(user));
-                navigate('/home')
-            } else {
-                r.json().then((errorData) => alert(errorData.errors))
-            }
+        body: JSON.stringify({
+            first_name: firstName,
+            last_name: lastName,
+            email,
+            password
+        }),
+    }).then((r) => {
+        if (r.ok) {
+            r.json().then((user) => setUser(user));
+            navigate('/home')
+        } else {
+            r.json().then((errorData) => alert(errorData.errors))
+        
+        }
         })
     }
-
-
-
-
     function handleClick(){
         div.current.style.display = 'none'
         console.log(div.current)
     }
-
-
     return(
         <div>
             <div className="login-header">
@@ -46,8 +51,8 @@ function Login({ setUser }){
                         <img src='https://i.redd.it/mmqbl53sbdy71.png' alt='dropbox logo'/>
                         <a href='/home' className='divebox'><h2>Divebox</h2></a>
                     </div>
-                    <div className="download">
-                        <a href="#"><p>Download the app</p></a>
+                    <div className="download" style={{visibility:'hidden'}}>
+                        <a href="/"><p>Download the app</p></a>
                     </div>
                 </div>
             </div>
@@ -60,21 +65,26 @@ function Login({ setUser }){
                 </div>
                 <div className="login-form">
                     <div className="login-form-left">
-                        <img src="https://i.imgur.com/5rug32F.png" alt='sign in'/> {/* https://i.imgur.com/TL7Vvay.png */}
+                        <img src="https://cdn2.iconfinder.com/data/icons/flat-illustrations-1/550/Cloud_Server-1024.png" alt='sign in'/>
                     </div>
                     <div className="login-form-right">
                         <div className="top-of-form">
-                            <p id='sign-in-p'>Sign in</p>
-                            <p>or &nbsp;<a href='/signup'>create an account</a></p>
+                            <p id='sign-in-p'>Create an account</p>
+                            <p>or &nbsp;<a href='/'>log in</a></p>
                         </div>
-                        <form onSubmit={handleSubmit}>
+                            <form>
+                            <div className="label-container">
+                                <label htmlFor="firstname">First Name</label>
+                            </div>
                             <div className="input-container">
-                                <button>google</button>
+                                <input type='text' name='firstname' value= {firstName} onChange={(e) => setFirstName(e.target.value)}required />
                             </div>
-                            <div className="input-container" id="apple-button">
-                                <button>apple</button>
+                            <div className="label-container">
+                                <label htmlFor="lastname">Last Name</label>
                             </div>
-                            <span id='or'> or </span>
+                            <div className="input-container">
+                                <input type='text' name="lastname" value={lastName} onChange={(e) => setLastName(e.target.value)} required ></input><br/>
+                            </div>
                             <div className="label-container">
                                 <label htmlFor="Email">Email</label>
                             </div>
@@ -87,28 +97,31 @@ function Login({ setUser }){
                             <div className="input-container">
                                 <input type='password' name="password" value={password} onChange={(e) => setPassword(e.target.value)} required ></input><br/>
                             </div>
-                            <div id='bottom-form'>
-                                <div id='bottom-form-left'>
+                            <div id='bottom-form-create'>
+                                <div id='bottom-form-left-create'>
                                     <input
                                         type="checkbox"
                                         className="form-check-input"
-                                        id="rememberPassword"
+                                        id="policy"
                                         name="checkbox"
                                         // checked={rememberPassword}
                                         // onChange={(event) => handleChechbox(event)}
                                         // required
                                     />
-                                    <label className="form-check-label" for="rememberPassword">Remember me</label>
+                                    <label className="form-check-label-create" htmlFor="policy">I agree to the Dropbox Terms. Learn about how we use and protect your data in our Privacy Policy.</label>
                                 </div>
-                                <div id='bottom-form-right'>
-                                    <button type="submit"> Sign in </button>
+                                <div id='bottom-form-right-create'>
+                                    <button type="submit" onClick={handleSubmit}> Create an account </button>
+                                </div>
+                                <div id='bottom-form-right-create'>
+                                    <button> Sign up with Google </button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-                <footer className="footer">
+            <footer className="footer">
                     <div className="column">
                         <p>Divebox</p>
                         <p>Install</p>
@@ -147,5 +160,6 @@ function Login({ setUser }){
                 </footer>
         </div>
     )
+    
 }
-export default Login;
+export default SignUp;

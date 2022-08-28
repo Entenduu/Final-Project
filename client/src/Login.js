@@ -20,6 +20,7 @@ function Login({ setUser }){
             if (r.ok) {
                 r.json().then((user) => setUser(user));
                 navigate('/home')
+                window.location.reload(false)
             } else {
                 r.json().then((errorData) => alert(errorData.errors))
             }

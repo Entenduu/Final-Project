@@ -12,11 +12,18 @@ function App() {
   const [directories, setDirectories] = useState([]);
   const [directoriesSearchValue, setDirectoriesSearchValue] = useState('');
   const [reload, setReload] = useState(true);
+  const [documentsFetch, setDocumentsFetch] = useState([])
 
   function searchDirectories(e){
     setDirectoriesSearchValue(e.target.value)
   }
-    
+    useEffect(()=>{
+      fetch('/documents').then((r)=>{
+        if (r.ok){
+          r.json().then((document) => setDocumentsFetch(document));
+        }
+      });
+    },[directories])
 
 
     useEffect(() => {

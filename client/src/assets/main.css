@@ -904,13 +904,12 @@ ul{
 }
 
 
-/* screen width */
 
 
 
 
 
-/* @media only screen and (max-width: 1400px) {
+  @media only screen and (max-width: 1400px) {
   #home{
     width:700px
   }
@@ -1030,4 +1029,4 @@ ul{
           left: 10%
         }
 }
- */
+

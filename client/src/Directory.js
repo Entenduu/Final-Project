@@ -1,8 +1,10 @@
 import { ZoomInIcon, DocumentIcon } from "@heroicons/react/outline";
 import React, { useState } from "react";
 import Folder from "./Folder";
+import { useNavigate } from 'react-router-dom';
 
 function Directory({directories, directoriesSearchValue, doTheDelete, deleteFolder}){
+    const navigate = useNavigate();
     const [selectedFolder, setSelectedFolder] = useState(0)
     const [actualFolder, setActualFolder] = useState({})
     
@@ -18,7 +20,6 @@ function Directory({directories, directoriesSearchValue, doTheDelete, deleteFold
 
     return (
         <div id='folders-container'>
-            <button id='back-button' onClick={()=> { setSelectedFolder(0)}}>root</button>
 
 
                 {
@@ -42,7 +43,7 @@ function Directory({directories, directoriesSearchValue, doTheDelete, deleteFold
                                     
                                         <div id="display-files" className="files" >
                                             <button className='folder-x' onClick={()=> deleteFile(document)}>x</button>
-                                            <img id='file' src={document.attachment_url} alt="img"/>
+                                            <img id='file' src={document.attachment_url} alt="img" onClick={() => window.open(`${document.attachment_url}`, '_blank')}/>
                                             <span>{document.name}</span>
                                         </div>
                                     

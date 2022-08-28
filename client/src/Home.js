@@ -14,8 +14,9 @@ function Home({user, directories, setDirectories, directoriesSearchValue, setRel
         setReload(!reload)
     }
 
-
     
+
+
 
     function deleteFolder(folder){
         fetch(`/directories/${folder.id}`,
